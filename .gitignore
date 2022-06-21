@@ -19,6 +19,9 @@ ResizeRight/
 disco-diffusion/
 guided-diffusion/
 pytorch3d-lite/
+/models
+/pretrained
+progress.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -29,7 +32,7 @@ __pycache__/
 *.so
 
 # Distribution / packaging
-.Python
+.Pythonl
 build/
 develop-eggs/
 dist/

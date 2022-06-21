@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Install a few dependencies
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install -y tzdata imagemagick
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install -y tzdata imagemagick ffmpeg
 
 # Create a disco user
 # RUN useradd -ms /bin/bash disco

@@ -19,9 +19,11 @@ ResizeRight/
 disco-diffusion/
 guided-diffusion/
 pytorch3d-lite/
+RAFT/
 /models
 /pretrained
-progress.png
+/images_out
+*.png
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

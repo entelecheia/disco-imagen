@@ -24,6 +24,7 @@ RAFT/
 /pretrained
 /images_out
 *.png
+/disco-imagen
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

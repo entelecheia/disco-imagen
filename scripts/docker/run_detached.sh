@@ -5,9 +5,9 @@ source .env
 set +o allexport
 
 NV_VISIBLE_DEVICES=${1:-"all"}
-CMD=${2:-/bin/bash}
+CMD=${2:"-bash ./scripts/start-notebook.sh"}
 
-docker run -it --rm \
+docker run -itd --rm \
   --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
   --network=host \
   --ipc=host \

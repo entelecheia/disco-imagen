@@ -17,10 +17,10 @@ ENV KMP_DUPLICATE_LIB_OK TRUE
 WORKDIR $WORK_DIR
 
 # Install Python packages
-RUN pip install --upgrade --no-cache-dir pip &&
+RUN pip install --upgrade --no-cache-dir pip && \
     pip install --no-cache-dir \
-        "ekorpkit[art]" wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
-        imageio imageio-ffmpeg==0.4.4 pyspng==0.1.0 lpips timm pytorch-lightning torch-fidelity einops ftfy seaborn >=1.0.8
+        'ekorpkit[art]' wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
+        imageio imageio-ffmpeg==0.4.4 pyspng==0.1.0 lpips timm pytorch-lightning>=1.0.8 torch-fidelity einops ftfy seaborn
 
 RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py widgetsnbextension

@@ -4,4 +4,4 @@ set -o allexport
 source .env
 set +o allexport
 
-docker build ./scripts/docker --rm -t $DISCO_IMAGEN_DOCKER
+docker build ./scripts/docker --network=host --rm -t $DISCO_IMAGEN_DOCKER

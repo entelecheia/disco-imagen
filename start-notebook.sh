@@ -13,4 +13,4 @@ jupyter notebook \
     --no-browser -NotebookApp.token=$JUPYTER_TOKEN \
     --notebook-dir=$JUPYTER_NOTEBOOK_DIR \
     --port=$JUPYTER_PORT --ip=0.0.0.0 \
-    --allow-root >$LOGFILE &
+    --allow-root &> $LOGFILE &

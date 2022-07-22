@@ -8,7 +8,7 @@ ENV PYTHONUNBUFFERED 1
 
 # Install a few dependencies
 RUN apt update
-RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install -y tzdata imagemagick ffmpeg
+RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install -y tzdata imagemagick ffmpeg git
 
 # Set up code directory
 ENV WORKSPACE_DIR /workspace
@@ -20,8 +20,10 @@ WORKDIR $WORK_DIR
 # Install Python packages
 RUN pip install --upgrade --no-cache-dir pip && \
     pip install --no-cache-dir \
-        ekorpkit[art] wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
+        ekorpkit[all] wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
         imageio imageio-ffmpeg==0.4.4 pyspng==0.1.0 lpips timm pytorch-lightning>=1.0.8 torch-fidelity einops ftfy seaborn
+RUN pip install --no-cache-dir jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
+    pip install --no-cache-dir flax
 
 RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py widgetsnbextension

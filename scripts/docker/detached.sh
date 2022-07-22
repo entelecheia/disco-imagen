@@ -6,7 +6,7 @@ set +o allexport
 
 NV_VISIBLE_DEVICES=${1:-"all"}
 
-docker run -itd --rm \
+docker run -d --rm \
   --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
   --network=host \
   --ipc=host \

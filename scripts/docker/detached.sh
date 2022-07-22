@@ -5,7 +5,6 @@ source .env
 set +o allexport
 
 NV_VISIBLE_DEVICES=${1:-"all"}
-CMD=${2:-"sh -c './start-notebook.sh'"}
 
 docker run -itd --rm \
   --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
@@ -17,4 +16,4 @@ docker run -itd --rm \
   -e WANDB_API_KEY=$WANDB_API_KEY \
   -v $WORKSPACE_HOST:$WORKSPACE_DOCKER \
   --name $DOCKER_CONTAINER_NAME \
-  $DISCO_IMAGEN_DOCKER $CMD
+  $DISCO_IMAGEN_DOCKER sh -c './start-notebook.sh'

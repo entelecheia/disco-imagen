@@ -16,4 +16,4 @@ docker run -itd --rm \
   -e WANDB_API_KEY=$WANDB_API_KEY \
   -v $WORKSPACE_HOST:$WORKSPACE_DOCKER \
   --name $DOCKER_CONTAINER_NAME \
-  $DISCO_IMAGEN_DOCKER sh -c './start-notebook.sh'
+  $DISCO_IMAGEN_DOCKER /bin/bash -c './start-notebook.sh'

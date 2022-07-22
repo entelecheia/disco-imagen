@@ -20,7 +20,7 @@ WORKDIR $WORK_DIR
 # Install Python packages
 RUN pip install --upgrade --no-cache-dir pip && \
     pip install --no-cache-dir \
-        ekorpkit[all]==0.1.37.post0.dev1 wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
+        'ekorpkit[all]==0.1.37.post0.dev1' wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
         imageio imageio-ffmpeg==0.4.4 pyspng==0.1.0 lpips timm pytorch-lightning>=1.0.8 torch-fidelity einops ftfy seaborn
 RUN pip install --no-cache-dir jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
     pip install --no-cache-dir flax unidecode opencv-python

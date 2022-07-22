@@ -25,7 +25,3 @@ RUN pip install --upgrade --no-cache-dir pip && \
 
 RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py widgetsnbextension
-
-ADD ./start-notebook.sh /start-notebook.sh
-RUN chmod +x /start-notebook.sh
-ENTRYPOINT ["/start-notebook.sh"]

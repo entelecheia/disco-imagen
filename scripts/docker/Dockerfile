@@ -14,11 +14,12 @@ RUN DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get -y install -y tzdata image
 ENV WORKSPACE_DIR /workspace
 ENV WORK_DIR $WORKSPACE_DIR/projects/disco-imagen
 ENV KMP_DUPLICATE_LIB_OK TRUE
+ENV PIP_DEFAULT_TIMEOUT 100
 WORKDIR $WORK_DIR
 
 # Install Python packages
 RUN pip install --upgrade --no-cache-dir pip && \
-    pip install --no-cache-dir --default-timeout=100 \
+    pip install --no-cache-dir \
         ekorpkit[art] wandb transformers simpletransformers hydra-core hydra-colorlog tensorflow jupyter_nbextensions_configurator ipywidgets \
         imageio imageio-ffmpeg==0.4.4 pyspng==0.1.0 lpips timm pytorch-lightning>=1.0.8 torch-fidelity einops ftfy seaborn
 

@@ -45,8 +45,7 @@ RUN jupyter nbextension enable --py widgetsnbextension
 COPY ./notebooks/ ./notebooks/
 COPY ./config/ ./config/
 
-ENTRYPOINT []
-CMD ["jupyter", "notebook", \
+ENTRYPOINT ["jupyter", "notebook", \
     "--ip=0.0.0.0", "--allow-root", "--no-browser" \
     "-NotebookApp.token=${JUPYTER_TOKEN}" \
     "--notebook-dir=${EKORPKIT_PROJECT_DIR}" \

@@ -11,6 +11,6 @@ printf "Logs written to %s\n" "$LOGFILE"
 
 nohup jupyter notebook \
     --no-browser -NotebookApp.token=$JUPYTER_TOKEN \
-    --notebook-dir=$JUPYTER_NOTEBOOK_DIR \
+    --notebook-dir=$EKORPKIT_PROJECT_DIR \
     --port=$JUPYTER_PORT --ip=0.0.0.0 \
     --allow-root >$LOGFILE &

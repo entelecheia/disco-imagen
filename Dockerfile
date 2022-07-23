@@ -44,10 +44,8 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 COPY ./notebooks/ ./notebooks/
 COPY ./config/ ./config/
+COPY ./scripts/start-notebook.sh ./.start-notebook.sh
+COPY .env .env
 
-CMD ["jupyter", "notebook", \
-    "--ip=0.0.0.0", "--allow-root", "--no-browser", \
-    "-NotebookApp.token=${JUPYTER_TOKEN}", \
-    "--notebook-dir=${EKORPKIT_PROJECT_DIR}", \
-    "--port=${JUPYTER_PORT}", "&"]
+CMD ["bash", ".start-notebook.sh"]
 EXPOSE ${JUPYTER_PORT}

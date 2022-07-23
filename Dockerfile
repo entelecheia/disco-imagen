@@ -25,7 +25,7 @@ ENV PIP_DEFAULT_TIMEOUT 100
 ENV JUPYTER_TOKEN=${jupyter_token}
 ENV JUPYTER_PORT=${jupyter_port}
 
-WORKDIR $PROJECT_DIR
+WORKDIR $EKORPKIT_PROJECT_DIR
 
 # Install Python packages
 RUN pip install --upgrade --no-cache-dir pip

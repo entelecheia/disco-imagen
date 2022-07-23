@@ -4,28 +4,18 @@ set -o allexport
 source .env
 set +o allexport
 
-NV_VISIBLE_DEVICES=${1:-"all"}
-
-mkdir -p $JUPYTER_LOG_DIR
-DATESTAMP=$(date +'%y%m%d%H%M%S')
-LOGFILE=$JUPYTER_LOG_DIR/.jupyter-$DATESTAMP.log
-printf "Logs written to %s\n" "$LOGFILE"
+if [ "$HOST_WORKSPACE_ROOT" == "" ]; then
+    HOST_WORKSPACE_ROOT=${HOME}${EKORPKIT_WORKSPACE_ROOT}
+    echo "HOST_WORKSPACE_ROOT is empty, using: $HOST_WORKSPACE_ROOT"
+fi
 
 docker run -itd --rm \
-  --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
-  --network=host \
-  --ipc=host \
+  --runtime=nvidia \
+  --network=$DOCKER_NETWORK \
+  --ipc=$DOCKER_IPC \
   --ulimit memlock=-1 \
   --ulimit stack=67108864 \
-  -e WANDB_API_KEY=$WANDB_API_KEY \
-  -e EKORPKIT_CONFIG_DIR=$EKORPKIT_CONFIG_DIR \
-  -e EKORPKIT_PROJECT=$EKORPKIT_PROJECT \
-  -e EKORPKIT_WORKSPACE_ROOT=$EKORPKIT_WORKSPACE_ROOT \
-  -v $WORKSPACE_HOST:$WORKSPACE_DOCKER \
+  --env-file .env \
+  --volume $HOST_WORKSPACE_ROOT:$EKORPKIT_WORKSPACE_ROOT \
   --name $DOCKER_CONTAINER_NAME \
-  $DISCO_IMAGEN_DOCKER jupyter notebook \
-    --no-browser -NotebookApp.token=$JUPYTER_TOKEN \
-    --notebook-dir=$JUPYTER_NOTEBOOK_DIR \
-    --port=$JUPYTER_PORT --ip=0.0.0.0 \
-    --allow-root >$LOGFILE &
-
+  $DOCKER_IMAGE_NAME

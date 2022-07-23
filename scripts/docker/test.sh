@@ -4,7 +4,7 @@ set -o allexport
 source .env
 set +o allexport
 
-docker run -d --rm \
+docker run -itd --rm \
   --runtime=nvidia \
   --network=$DOCKER_NETWORK \
   --ipc=$DOCKER_IPC \

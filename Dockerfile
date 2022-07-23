@@ -46,5 +46,5 @@ CMD ["jupyter", "notebook", \
     "--ip=0.0.0.0", "--allow-root", "--no-browser" \
     "-NotebookApp.token=${jupyter_token}" \
     "--notebook-dir=$PROJECT_DIR" \
-    "--port=${jupyter_port}"]
+    "--port=${jupyter_port}", "&"]
 EXPOSE ${jupyter_port}

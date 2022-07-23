@@ -13,4 +13,4 @@ docker run -itd --rm \
   --env-file .env \
   --volume $WORKSPACE_HOST:$EKORPKIT_WORKSPACE_ROOT \
   --name $DOCKER_CONTAINER_NAME \
-  $DISCO_IMAGEN_DOCKER
+  $DOCKER_IMAGE_NAME

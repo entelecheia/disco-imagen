@@ -10,4 +10,4 @@ docker build \
     --build-arg project_name=$EKORPKIT_PROJECT \
     --build-arg jupyter_port=$JUPYTER_PORT \
     --build-arg jupyter_token=$JUPYTER_TOKEN \
-    ./scripts/docker -t $DOCKER_IMAGE_NAME \
+    . -t $DOCKER_IMAGE_NAME \

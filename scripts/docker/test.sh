@@ -4,10 +4,8 @@ set -o allexport
 source .env
 set +o allexport
 
-NV_VISIBLE_DEVICES=${1:-"all"}
-
-docker run -itd --rm \
-  --runtime=nvidia -e NVIDIA_VISIBLE_DEVICES=$NV_VISIBLE_DEVICES \
+docker run -d --rm \
+  --runtime=nvidia \
   --network=$DOCKER_NETWORK \
   --ipc=$DOCKER_IPC \
   --ulimit memlock=-1 \

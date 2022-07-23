@@ -44,8 +44,8 @@ RUN jupyter nbextension enable --py widgetsnbextension
 
 COPY ./notebooks/ ./notebooks/
 COPY ./config/ ./config/
-COPY ./scripts/start-notebook.sh ./.start-notebook.sh
+COPY ./scripts/start-notebook.sh ./scripts/start-notebook.sh
 COPY .env .env
 
-CMD ["bash", ".start-notebook.sh"]
+CMD ["bash", "./scripts/start-notebook.sh"]
 EXPOSE ${JUPYTER_PORT}

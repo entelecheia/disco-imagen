@@ -37,7 +37,7 @@ RUN pip install --no-cache-dir \
         lpips timm pytorch-lightning>=1.0.8 torch-fidelity \
         einops ftfy seaborn
 RUN pip install --no-cache-dir jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
-    pip install --no-cache-dir flax unidecode opencv-python
+    pip install --no-cache-dir flax unidecode opencv-python==4.5.5.64
 
 RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py widgetsnbextension

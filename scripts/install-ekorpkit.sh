@@ -6,4 +6,4 @@ set +o allexport
 
 EXTRA=${1:-$EKORPKIT_PIP_EXTRA}
 
-pip install -u ekorpkit$EXTRA
+pip install -U ekorpkit$EXTRA

@@ -5,7 +5,9 @@ source .env
 set +o allexport
 
 jupyter notebook \
-    --no-browser -NotebookApp.token=$JUPYTER_TOKEN \
+    -NotebookApp.token=$JUPYTER_TOKEN \
     --notebook-dir=$EKORPKIT_PROJECT_DIR \
-    --port=$JUPYTER_PORT --ip=0.0.0.0 \
+    --no-browser \
+    --ip=0.0.0.0 \
+    --port=$JUPYTER_PORT \
     --allow-root

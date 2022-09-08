@@ -30,14 +30,14 @@ WORKDIR $EKORPKIT_PROJECT_DIR
 # Install Python packages
 RUN pip install --upgrade --no-cache-dir pip
 RUN pip install --no-cache-dir \
-        ekorpkit[all] wandb transformers simpletransformers \
+        "ekorpkit[all]" wandb transformers simpletransformers \
         hydra-core hydra-colorlog tensorflow \
         jupyterlab jupyter_nbextensions_configurator ipywidgets \
-        imageio pyspng==0.1.0 \
-        lpips timm pytorch-lightning>=1.0.8 torch-fidelity \
+        imageio "pyspng==0.1.0" \
+        lpips timm "pytorch-lightning>=1.0.8" torch-fidelity \
         einops ftfy seaborn
 RUN pip install --no-cache-dir jax[cuda11_cudnn82] -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html && \
-    pip install --no-cache-dir flax unidecode opencv-python==4.5.5.64
+    pip install --no-cache-dir flax unidecode "opencv-python==4.5.5.64"
 
 RUN jupyter nbextensions_configurator enable
 RUN jupyter nbextension enable --py widgetsnbextension
